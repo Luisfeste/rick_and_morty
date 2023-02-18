@@ -6,10 +6,11 @@ import style from "./Nav.module.css"
 
 
 export default function nav({onSearch}){
-     return <div className={style.nav} >
+     return <nav >
+          <img src="https://1.bp.blogspot.com/-AvVxtmDEbCw/YRQjDiXFhCI/AAAAAAABAR8/lNQZ_fg-C9UXdoNkqJ3uVOwANlu7S_ZAACLcBGAsYHQ/s3200/tipografia-rick-y-morty.jpg"/>
           <Link to="/home" className={style.link}>Home</Link>
           <Link to="/about" className={style.links}>About</Link>
           
           <SearchBar onSearch={onSearch}/>
-          </div>
+          </nav>
 }

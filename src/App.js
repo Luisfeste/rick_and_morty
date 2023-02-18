@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import {Routes, Route, useLocation} from 'react-router-dom'
 import './App.css'
 import Cards from './components/cards/Cards.jsx'
 import Nav from './components/nav/Nav'
+import Detail from './components/detail/Detail.jsx'
+import About from './components/about/About'
+import Form from './components/Form/Form'
 
 
 
@@ -25,11 +29,22 @@ function App () {
  const onClose = (id) => {
 setCharacters(characters.filter((char)=> char.id !== id));
  };
+
+ const location = useLocation();
+ console.log(location);
  
   return (
     <div className='App' style={{ padding: '25px' }}>
      <div><Nav onSearch={onSearch} /></div>
-      <div><Cards onClose={onClose} characters={characters} /></div>     
+    
+     <Routes>
+      <Route exact path='/' element={<Form/>}></Route>
+      <Route path="/home" element={<Cards onClose={onClose} characters={characters} />}/>
+  
+      <Route path="/about" element ={<About/>}/>
+      <Route path="/detail/:detailId" element ={<Detail/>}/>
+      </Routes>
+         
     </div>
   )
 }
